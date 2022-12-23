@@ -1,0 +1,264 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Juego/Niveles/Nivel.gd" type="Script" id=1]
+[ext_resource path="res://Recursos/Background/bg_layer1.png" type="Texture" id=2]
+[ext_resource path="res://Juego/Objetos/MonedaOro.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Juego/Objetos/PlataformaTrampa.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Juego/HUD/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Juego/plataformas/PlataformaLargaGrass.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Juego/plataformas/PlataformaCortaGrass.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Juego/plataformas/PlataformaGrass.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Juego/menus/MenuPausa.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Juego/Enemigos/PinchaPincha.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Juego/Objetos/power_up/PowerUpVolar.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Juego/Objetos/PlataformaImpulsora.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Juego/personaje/Saltarina.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Juego/Objetos/Portal.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Juego/Objetos/ZanahoriaLlave.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Juego/Objetos/MonedaBronce.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Juego/Objetos/Pinchos.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Juego/plataformas/PlataformaLargaStone.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Juego/Objetos/power_up/PowerUpSalto.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Juego/Enemigos/Zeus.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Juego/Enemigos/VuelaVuela.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Juego/Objetos/MonedaPlata.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Recursos/Background/bg_layer2.png" type="Texture" id=23]
+[ext_resource path="res://Recursos/Background/bg_layer3.png" type="Texture" id=24]
+[ext_resource path="res://Recursos/Background/bg_layer4.png" type="Texture" id=25]
+
+[node name="Nivel 1" type="Node"]
+script = ExtResource( 1 )
+nivel_actual = "res://Juego/Niveles/Nivel 1.tscn"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_offset = Vector2( 0, -350 )
+
+[node name="ParallaxFondo" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 1 )
+motion_mirroring = Vector2( 2048, 2048 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxFondo"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+
+[node name="ParallaxNubesLejanas" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxNubesLejanas"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 23 )
+
+[node name="ParallaxNubesMedias" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxNubesMedias"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 24 )
+
+[node name="ParallaxNubesCercanas" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxNubesCercanas"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 25 )
+
+[node name="CapaFrente" type="CanvasLayer" parent="."]
+pause_mode = 2
+
+[node name="HUD" parent="CapaFrente" instance=ExtResource( 5 )]
+pause_mode = 1
+
+[node name="MenuPausa" parent="CapaFrente" instance=ExtResource( 9 )]
+visible = false
+
+[node name="PlataformasNormales" type="Node" parent="."]
+
+[node name="PlataformaGrass" parent="PlataformasNormales" instance=ExtResource( 8 )]
+position = Vector2( 489, 545 )
+
+[node name="PlataformaGrass2" parent="PlataformasNormales" instance=ExtResource( 8 )]
+position = Vector2( 2814, 405 )
+
+[node name="PlataformaGrass3" parent="PlataformasNormales" instance=ExtResource( 8 )]
+position = Vector2( 1626, 24 )
+
+[node name="PlataformaGrass4" parent="PlataformasNormales" instance=ExtResource( 8 )]
+position = Vector2( 1307, 829 )
+
+[node name="PlataformaGrass5" parent="PlataformasNormales" instance=ExtResource( 8 )]
+position = Vector2( 263, -83 )
+
+[node name="PlataformaGrass6" parent="PlataformasNormales" instance=ExtResource( 8 )]
+position = Vector2( 1546, 829 )
+
+[node name="PlataformasLargas" type="Node" parent="."]
+
+[node name="PlataformaLargaGrass" parent="PlataformasLargas" instance=ExtResource( 6 )]
+position = Vector2( 73, 672 )
+
+[node name="PlataformaLargaGrass2" parent="PlataformasLargas" instance=ExtResource( 6 )]
+position = Vector2( 2121, 708 )
+
+[node name="PlataformaLargaGrass3" parent="PlataformasLargas" instance=ExtResource( 6 )]
+position = Vector2( 1086, -25 )
+
+[node name="PlataformaLargaGrass4" parent="PlataformasLargas" instance=ExtResource( 6 )]
+position = Vector2( -383, -209 )
+
+[node name="PlataformaLargaGrass5" parent="PlataformasLargas" instance=ExtResource( 6 )]
+position = Vector2( 862, 669 )
+
+[node name="PlataformaLargaGrass6" parent="PlataformasLargas" instance=ExtResource( 6 )]
+position = Vector2( 2065, 96 )
+
+[node name="PlataformaLargaGrass7" parent="PlataformasLargas" instance=ExtResource( 6 )]
+position = Vector2( -586, 141 )
+
+[node name="PlataformasCortas" type="Node" parent="."]
+
+[node name="PlataformaCortaGrass" parent="PlataformasCortas" instance=ExtResource( 7 )]
+position = Vector2( -167, 437 )
+scale = Vector2( 0.15, 0.15 )
+
+[node name="PlataformaCortaGrass2" parent="PlataformasCortas" instance=ExtResource( 7 )]
+position = Vector2( 2533, 665 )
+scale = Vector2( 0.15, 0.15 )
+
+[node name="PlataformaCortaGrass3" parent="PlataformasCortas" instance=ExtResource( 7 )]
+position = Vector2( -222, 367 )
+scale = Vector2( 0.15, 0.15 )
+
+[node name="PlataformaCortaGrass4" parent="PlataformasCortas" instance=ExtResource( 7 )]
+position = Vector2( -343, 216 )
+scale = Vector2( 0.15, 0.15 )
+
+[node name="PlataformaCortaGrass8" parent="PlataformasCortas" instance=ExtResource( 7 )]
+position = Vector2( -838, -70 )
+scale = Vector2( 0.15, 0.15 )
+
+[node name="PlataformaCortaGrass5" parent="PlataformasCortas" instance=ExtResource( 7 )]
+position = Vector2( 2641, 582 )
+scale = Vector2( 0.15, 0.15 )
+
+[node name="PlataformaCortaGrass6" parent="PlataformasCortas" instance=ExtResource( 7 )]
+position = Vector2( -289, 288 )
+scale = Vector2( 0.15, 0.15 )
+
+[node name="PlataformaCortaGrass7" parent="PlataformasCortas" instance=ExtResource( 7 )]
+position = Vector2( 1744, 804 )
+scale = Vector2( 0.15, 0.15 )
+
+[node name="Saltarina" parent="." instance=ExtResource( 13 )]
+position = Vector2( 685, 621 )
+
+[node name="Pinchos" type="Node" parent="."]
+
+[node name="Pinchos" parent="Pinchos" instance=ExtResource( 17 )]
+position = Vector2( -454, -211 )
+es_trampa = true
+
+[node name="Pinchos4" parent="Pinchos" instance=ExtResource( 17 )]
+position = Vector2( 865, 632 )
+
+[node name="Pinchos2" parent="Pinchos" instance=ExtResource( 17 )]
+position = Vector2( 1009, -56 )
+
+[node name="Pinchos3" parent="Pinchos" instance=ExtResource( 17 )]
+position = Vector2( -563, -240 )
+
+[node name="Enemigos" type="Node" parent="."]
+
+[node name="PinchaPincha" parent="Enemigos" instance=ExtResource( 10 )]
+position = Vector2( 2180, 51 )
+
+[node name="PinchaPincha2" parent="Enemigos" instance=ExtResource( 10 )]
+position = Vector2( -249, -258 )
+velocidad = 275.0
+
+[node name="PinchaPincha3" parent="Enemigos" instance=ExtResource( 10 )]
+position = Vector2( -709, 94 )
+velocidad = 350.0
+
+[node name="PinchaPincha4" parent="Enemigos" instance=ExtResource( 10 )]
+position = Vector2( 482, 496 )
+velocidad = 100.0
+
+[node name="VuelaVuela" parent="Enemigos" instance=ExtResource( 21 )]
+position = Vector2( 2533, 357 )
+
+[node name="VuelaVuela2" parent="Enemigos" instance=ExtResource( 21 )]
+position = Vector2( 261, -209 )
+
+[node name="VuelaVuela3" parent="Enemigos" instance=ExtResource( 21 )]
+position = Vector2( 1434, 2 )
+
+[node name="VuelaVuela5" parent="Enemigos" instance=ExtResource( 21 )]
+position = Vector2( 485, -133 )
+
+[node name="VuelaVuela6" parent="Enemigos" instance=ExtResource( 21 )]
+position = Vector2( 706, -63 )
+
+[node name="VuelaVuela7" parent="Enemigos" instance=ExtResource( 21 )]
+position = Vector2( 44, -281 )
+
+[node name="Zeus" parent="Enemigos" instance=ExtResource( 20 )]
+position = Vector2( 1376, -460 )
+
+[node name="Zeus2" parent="Enemigos" instance=ExtResource( 20 )]
+position = Vector2( 982, 71 )
+
+[node name="Rayos" type="Node" parent="."]
+
+[node name="Monedas" type="Node" parent="."]
+
+[node name="MonedaPlata" parent="Monedas" instance=ExtResource( 22 )]
+position = Vector2( 809, 445 )
+
+[node name="MonedaBronce" parent="Monedas" instance=ExtResource( 16 )]
+position = Vector2( 864, 562 )
+scale = Vector2( 0.905009, 0.906765 )
+
+[node name="MonedaOro" parent="Monedas" instance=ExtResource( 3 )]
+position = Vector2( 964, 462 )
+
+[node name="MonedaPlata2" parent="Monedas" instance=ExtResource( 22 )]
+position = Vector2( 760, 487 )
+
+[node name="MonedaBronce2" parent="Monedas" instance=ExtResource( 16 )]
+position = Vector2( 815, 604 )
+scale = Vector2( 0.905009, 0.906765 )
+
+[node name="MonedaOro2" parent="Monedas" instance=ExtResource( 3 )]
+position = Vector2( 915, 504 )
+
+[node name="PlataformaImpulsora" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1289, 800 )
+scale = Vector2( 1, 1.00302 )
+
+[node name="PowerUpSalto" parent="." instance=ExtResource( 19 )]
+position = Vector2( 1108, -371 )
+
+[node name="PowerUpVolar" parent="." instance=ExtResource( 11 )]
+position = Vector2( 594, -245 )
+
+[node name="PlataformaTrampa" parent="." instance=ExtResource( 4 )]
+position = Vector2( -331, 656 )
+
+[node name="Portal" parent="." instance=ExtResource( 14 )]
+position = Vector2( 201, 571 )
+proximo_nivel = "res://Juego/menus/MenuVictoria.tscn"
+
+[node name="Zanahorias" type="Node" parent="."]
+
+[node name="ZanahoriaLlave" parent="Zanahorias" instance=ExtResource( 15 )]
+position = Vector2( -49, 560 )
+
+[node name="PlataformaLargaStone" parent="." instance=ExtResource( 18 )]
+position = Vector2( -482, 1097 )
+scale = Vector2( 10, 0.3 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Jolly_Bot.ogg-7ebcbd6968f01551dc1db934ee5683f9.oggstr"
+
+[deps]
+
+source_file="res://Recursos/Music/Jolly_Bot.ogg"
+dest_files=[ "res://.import/Jolly_Bot.ogg-7ebcbd6968f01551dc1db934ee5683f9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
